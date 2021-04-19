@@ -1,0 +1,23 @@
+bash An.....
+
+conda create -n open-mmlab python=3.7 -y
+conda activate open-mmlab
+
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+ conda install pytorch=1.8.0 torchvision torchaudio cudatoolkit=10.2 -c pytorch
+
+pip install mmcv-full==1.2.4 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.8.0/index.html
+
+pip install mmcv-full
+
+cd mmdetection
+pip install -r requirements/build.txt
+pip install -v -e .  # or "python setup.py develop"
+
+conda remove libpng
+
+pip3 install rospkg
+
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/finch/SLAM/src/orbtsdf-openmm/Examples/ROS/ORB_SLAM2
+
+rosrun ORB_SLAM2 RGBD Vocabulary/ORBvoc.txt Examples/RGB-D/kinect2.yaml 
